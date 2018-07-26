@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "bootmagic.h"
 #include "eeconfig.h"
 #include "backlight.h"
+#include "ledstrip.h"
 #ifdef MOUSEKEY_ENABLE
 #   include "mousekey.h"
 #endif
@@ -71,6 +72,10 @@ void keyboard_init(void)
 
 #ifdef BACKLIGHT_ENABLE
     backlight_init();
+#endif
+
+#ifdef LEDSTRIP_ENABLE
+    ledstrip_init();
 #endif
 }
 
