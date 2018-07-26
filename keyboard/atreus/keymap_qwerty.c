@@ -22,7 +22,13 @@ const uint16_t PROGMEM fn_actions[] = {
   [0] = ACTION_LAYER_MOMENTARY(1),  // to Fn overlay
   [1] = ACTION_LAYER_ON(2, 1),  // switch to layer 2
   [2] = ACTION_LAYER_OFF(2, 1),  // switch back to layer 0
-  [3] = ACTION_FUNCTION(BOOTLOADER)
+  [3] = ACTION_FUNCTION(BOOTLOADER),
+  [4] = ACTION_LEDSTRIP_RED_UP(),
+  [5] = ACTION_LEDSTRIP_RED_DOWN(),
+  [6] = ACTION_LEDSTRIP_GREEN_UP(),
+  [7] = ACTION_LEDSTRIP_GREEN_DOWN(),
+  [8] = ACTION_LEDSTRIP_BLUE_UP(),
+  [9] = ACTION_LEDSTRIP_BLUE_DOWN()
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)

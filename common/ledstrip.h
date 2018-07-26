@@ -21,12 +21,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdint.h>
 #include <stdbool.h>
 
+/** The rgb_color struct represents the color for an 8-bit RGB LED.
+    Examples:
+      Black:      (rgb_color){ 0, 0, 0 }
+      Pure red:   (rgb_color){ 255, 0, 0 }
+      Pure green: (rgb_color){ 0, 255, 0 }
+      Pure blue:  (rgb_color){ 0, 0, 255 }
+      White:      (rgb_color){ 255, 255, 255} */
+typedef struct rgb_color
+{
+  unsigned char red, green, blue;
+} rgb_color;
+
 typedef union {
-    uint8_t lolno;
+    rgb_color color;
 } ledstrip_config_t;
 
 void ledstrip_init(void);
 
-void ledstrip_set(void);
+void ledstrip_set(rgb_color color);
+
+void ledstrip_red_up(void);
+void ledstrip_red_down(void);
+void ledstrip_green_up(void);
+void ledstrip_green_down(void);
+void ledstrip_blue_up(void);
+void ledstrip_blue_down(void);
 
 #endif

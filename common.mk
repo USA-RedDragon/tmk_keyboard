@@ -54,9 +54,15 @@ ifdef SLEEP_LED_ENABLE
     OPT_DEFS += -DNO_SUSPEND_POWER_DOWN
 endif
 
+
 ifdef BACKLIGHT_ENABLE
     SRC += $(COMMON_DIR)/backlight.c
     OPT_DEFS += -DBACKLIGHT_ENABLE
+endif
+
+ifdef LEDSTRIP_ENABLE
+    SRC += $(COMMON_DIR)/ledstrip.c
+    OPT_DEFS += -DLEDSTRIP_ENABLE
 endif
 
 ifdef KEYMAP_SECTION_ENABLE

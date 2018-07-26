@@ -23,35 +23,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define LED_STRIP_PORT PORTB
 #define LED_STRIP_DDR DDRB
-#define LED_STRIP_PIN 2
+#define LED_STRIP_PIN 1
 #define LED_COUNT 3
-
-/** The rgb_color struct represents the color for an 8-bit RGB LED.
-    Examples:
-      Black:      (rgb_color){ 0, 0, 0 }
-      Pure red:   (rgb_color){ 255, 0, 0 }
-      Pure green: (rgb_color){ 0, 255, 0 }
-      Pure blue:  (rgb_color){ 0, 0, 255 }
-      White:      (rgb_color){ 255, 255, 255} */
-typedef struct rgb_color
-{
-  unsigned char red, green, blue;
-} rgb_color;
 
 rgb_color colors[LED_COUNT];
 
 /* Backlight pin configuration
  * LED onewire: PB2
  */
-void ledstrip_set()
+void ledstrip_set(rgb_color color)
 {
     for(int i = 0; i < LED_COUNT; i++)
     {
-      colors[i] = (rgb_color){ 255, 255, 255 };
+      colors[i] = color;
     }
     led_strip_write(colors, LED_COUNT);
 }
-
 
 /** led_strip_write sends a series of colors to the LED strip, updating the LEDs.
  The colors parameter should point to an array of rgb_color structs that hold the colors to send.

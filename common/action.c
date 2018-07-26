@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "command.h"
 #include "led.h"
 #include "backlight.h"
+#include "ledstrip.h"
 #include "action_layer.h"
 #include "action_tapping.h"
 #include "action_macro.h"
@@ -306,6 +307,32 @@ void process_action(keyrecord_t *record)
                         break;
                     case BACKLIGHT_STEP:
                         backlight_step();
+                        break;
+                }
+            }
+            break;
+#endif
+#ifdef LEDSTRIP_ENABLE
+        case ACT_LEDSTRIP:
+            if (!event.pressed) {
+                switch (action.ledstrip.id) {
+                    case LEDSTRIP_RED_UP:
+                        ledstrip_red_up();
+                        break;
+                    case LEDSTRIP_RED_DOWN:
+                        ledstrip_red_down();
+                        break;
+                    case LEDSTRIP_GREEN_UP:
+                        ledstrip_green_up();
+                        break;
+                    case LEDSTRIP_GREEN_DOWN:
+                        ledstrip_green_down();
+                        break;
+                    case LEDSTRIP_BLUE_UP:
+                        ledstrip_blue_up();
+                        break;
+                    case LEDSTRIP_BLUE_DOWN:
+                        ledstrip_blue_down();
                         break;
                 }
             }

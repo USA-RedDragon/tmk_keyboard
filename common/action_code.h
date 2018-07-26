@@ -115,8 +115,9 @@ enum action_kind_id {
     ACT_MACRO           = 0b1100,
     ACT_BACKLIGHT       = 0b1101,
     ACT_COMMAND         = 0b1110,
-    ACT_FUNCTION        = 0b1111
-};
+    ACT_FUNCTION        = 0b1111,
+    ACT_LEDSTRIP        = 0b0111
+}; 
 
 
 /* Action Code Struct
@@ -165,6 +166,9 @@ typedef union {
     struct action_backlight {
         uint8_t  id     :8;
     } backlight;
+    struct action_ledstrip {
+        uint8_t  id     :8;
+    } ledstrip;
     struct action_command {
         uint8_t  id     :8;
         uint8_t  opt    :4;
@@ -288,6 +292,16 @@ enum backlight_id {
     BACKLIGHT_TOGGLE   = 2,
     BACKLIGHT_STEP     = 3,
 };
+
+enum ledstrip_id {
+    LEDSTRIP_RED_UP     = 0,
+    LEDSTRIP_RED_DOWN   = 1,
+    LEDSTRIP_GREEN_UP   = 2,
+    LEDSTRIP_GREEN_DOWN = 3,
+    LEDSTRIP_BLUE_UP    = 4,
+    LEDSTRIP_BLUE_DOWN  = 5,
+};
+
 /* Macro */
 #define ACTION_MACRO(id)                ACTION(ACT_MACRO, (id))
 #define ACTION_MACRO_TAP(id)            ACTION(ACT_MACRO, FUNC_TAP<<8 | (id))
@@ -297,6 +311,13 @@ enum backlight_id {
 #define ACTION_BACKLIGHT_DECREASE()     ACTION(ACT_BACKLIGHT, BACKLIGHT_DECREASE)
 #define ACTION_BACKLIGHT_TOGGLE()       ACTION(ACT_BACKLIGHT, BACKLIGHT_TOGGLE)
 #define ACTION_BACKLIGHT_STEP()         ACTION(ACT_BACKLIGHT, BACKLIGHT_STEP)
+/* LED strip */
+#define ACTION_LEDSTRIP_RED_UP()        ACTION(ACT_LEDSTRIP, LEDSTRIP_RED_UP)
+#define ACTION_LEDSTRIP_RED_DOWN()      ACTION(ACT_LEDSTRIP, LEDSTRIP_RED_DOWN)
+#define ACTION_LEDSTRIP_GREEN_UP()      ACTION(ACT_LEDSTRIP, LEDSTRIP_GREEN_UP)
+#define ACTION_LEDSTRIP_GREEN_DOWN()    ACTION(ACT_LEDSTRIP, LEDSTRIP_GREEN_DOWN)
+#define ACTION_LEDSTRIP_BLUE_UP()       ACTION(ACT_LEDSTRIP, LEDSTRIP_BLUE_UP)
+#define ACTION_LEDSTRIP_BLUE_DOWN()     ACTION(ACT_LEDSTRIP, LEDSTRIP_BLUE_DOWN)
 /* Command */
 #define ACTION_COMMAND(id, opt)         ACTION(ACT_COMMAND,  (opt)<<8 | (addr))
 /* Function */
