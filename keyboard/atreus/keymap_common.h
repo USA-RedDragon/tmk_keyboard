@@ -89,8 +89,8 @@ extern const uint16_t fn_actions[];
                                   KC_PGDN, KC_4, KC_5, KC_6, SHIFT(KC_EQUAL), \
                                 KC_LBRC, KC_RBRC, SHIFT(KC_9), SHIFT(KC_0), SHIFT(KC_7), \
                                   KC_GRAVE, KC_1, KC_2, KC_3, KC_BSLS,    \
-                                KC_FN1, SHIFT(KC_INS), KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, \
-                                  KC_LALT, KC_SPC, KC_FN0, KC_DOT, KC_0, KC_EQUAL)
+                                KC_FN1, SHIFT(KC_INS), KC_LGUI, KC_LSFT, KC_SPC, KC_LCTL, \
+                                  KC_LALT, KC_BSPC, KC_FN0, KC_DOT, KC_0, KC_EQUAL)
 
 /*
  * redup home   up  end   grnup      ||    bluup    F7    F8    F9   F10
